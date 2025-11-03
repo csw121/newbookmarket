@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입 - 뉴북마켓</title>
+</head>
+<body>
+<h1>뉴북마켓 회원가입</h1>
+
+<form action="/member/signup" method="post">
+    <div>
+        <label for="username">로그인 ID:</label>
+        <input type="text" name="username" id="username" required>
+    </div>
+    <div>
+        <label for="password">비밀번호:</label>
+        <input type="password" name="password" id="password" required>
+    </div>
+    <div>
+        <label for="name">이름(닉네임):</label>
+        <input type="text" name="name" id="name" required>
+    </div>
+    <div>
+        <button type="submit">가입하기</button>
+    </div>
+</form>
+
+</body>
+</html>
