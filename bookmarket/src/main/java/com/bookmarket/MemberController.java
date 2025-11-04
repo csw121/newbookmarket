@@ -36,4 +36,21 @@ public class MemberController {
         // 2. 회원가입이 성공하면, '메인 페이지(/)'로 돌려보냅니다. (리다이렉트)
         return "redirect:/";
     }
+
+
+    // [CTO 추가]
+    // "누군가 /member/login 주소로 'GET' 요청(페이지 보여줘!)을 하면,"
+    // "login.html 파일을 찾아서 보여줘!" 라는 '안내'입니다.
+    @GetMapping("/member/login")
+    public String login() {
+        return "login"; // 'login.html' 템플릿을 찾으라는 의미
+    }
+
+    // [CTO 추가]
+    // "누군가 메인 페이지(/) 주소로 'GET' 요청(페이지 보여줘!)을 하면,"
+    // "main.html 파일을 찾아서 보여줘!" 라는 '안내'입니다.
+    @GetMapping("/")
+    public String mainPage() {
+        return "main"; // 'main.html' 템플릿을 찾으라는 의미
+    }
 }
