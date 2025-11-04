@@ -3,22 +3,35 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security6">
 <head>
     <meta charset="UTF-8">
-    <title>뉴북마켓</title>
+    <title>PriBook</title>
 </head>
 <body>
-<h1>뉴북마켓에 오신 것을 환영합니다!</h1>
+<h1>프라이북에 오신 것을 환영합니다!</h1>
 
 <div sec:authorize="isAnonymous()">
     <a th:href="@{/member/login}">로그인</a>
     <a th:href="@{/member/signup}">회원가입</a>
 </div>
-
 <div sec:authorize="isAuthenticated()">
     안녕하세요, <strong sec:authentication="name">csw</strong> 님!
-
     <form th:action="@{/member/logout}" method="post" style="display: inline;">
         <button type="submit">로그아웃</button>
     </form>
+</div>
+
+<hr> <h2>판매중인 도서</h2>
+
+<div th:each="book : ${bookList}">
+    <h3 th:text="${book.title}">책 제목</h3> <p>
+    <span th:text="${book.author}">저자</span> |
+    <span th:text="${book.publisher}">출판사</span> |
+    <span th:text="${book.price}">가격</span> 원
+</p>
+    <hr>
+</div>
+
+<div th:if="${bookList.isEmpty()}">
+    <p>현재 판매중인 도서가 없습니다.</p>
 </div>
 
 </body>
